@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+body {
+    background: url("./img/photo-1578887237591-d2d01aa10a7e.png");
+}
+
+.container {
+    background-color: rgb(8, 0, 73);
+    width: 1000px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 100px 60px 0;
+}
+
+.tarefas h3 {
+    color: rgb(6, 113, 70);
+    text-shadow: #003329;
+    border-radius: 20px;
+    margin: 0 120px;
+    text-align: center;
+    font-size: 36px;
+    background-color: rgb(3, 1, 56);
+}
+
+.input-projetos {
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Ocupa 100% da largura do contêiner */
+    height: 200px;
+    padding-left: 10px;
+}
+
+.button-add-projetos {
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #008268;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 0 15px;
+    float: right;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.button-add-projetos:hover {
+    opacity: 0.8;
+}
+
+.button-add-projetos:active {
+    opacity: 0.6;
+}
+
+.list-projetos-container {
+    display: flex; /* Adiciona flexibilidade à lista */
+    flex-wrap: wrap; /* Permite a quebra de linha dos itens da lista */
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 30px;
+}
+
+.list-projetos {
+    padding: 0;
+    list-style: none;
+    width: 100%; /* Ocupa 100% da largura do contêiner */
+}
+
+.list-projetos li {
+    word-wrap: break-word;
+    max-width: 100%; /* Garante que cada item da lista não ultrapasse a largura máxima do contêiner principal */
+    word-break: break-word; /* Adiciona quebra de palavra para que o texto não ultrapasse a largura da li */
+    flex: 1; /* Permite que os itens se expandam proporcionalmente ao conteúdo */
+    min-height: 50px; /* Define uma altura mínima para cada item da lista */
+}
+
+.projetos {
+    background-color: rgb(249, 249, 249);
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+img {
+    height: 25px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.projetos:hover img {
+    opacity: 1;
+}
+
+.done {
+    background-color: #8fac55;
+    text-decoration: line-through;
+}
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    align-items: center;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.tarefas {
+    background-color: #04AA6D;
+    color: white;
+}
