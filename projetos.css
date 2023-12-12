@@ -7,28 +7,34 @@
 }
 
 body {
-    background: url("./img/photo-1578887237591-d2d01aa10a7e.png");
+    background: url("https://images.unsplash.com/photo-1701220291849-735ab3532959?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
 .container {
     background-color: rgb(8, 0, 73);
-    width: 1300px;
-    height: 1000px;
+   
+   
     border-radius: 10px;
     padding: 20px;
     margin: 100px auto 0; /* Alterado para centralizar na página */
+    display: flex;
+    flex-direction: column; /* Colocando os elementos em coluna */
+    align-items: center;
+    width: 90%; /* Tornando a largura flexível */
+    height: 100%;
 }
 
-.tarefas h3 {
+.projetos h3 {
     color: rgb(6, 113, 70);
-    text-shadow: #003329;
     border-radius: 20px;
-    margin: 0 auto; /* Alterado para centralizar na página */
-    text-align: center;
+    margin: 20px 0; /* Adicionado espaço acima e abaixo do título */
     font-size: 36px;
-    background-color: rgb(3, 1, 56);
+    text-align: center; /* Centralizar horizontalmente */
+    display: flex;
+    flex-grow: 1; /* Para centralizar verticalmente */
+    align-items: center;
+    justify-content: center;
 }
-
 .input-projetos {
     border: none;
     border-radius: 5px;
@@ -48,6 +54,7 @@ body {
     float: right;
     cursor: pointer;
     font-weight: 700;
+    margin-top: 20px;
 }
 
 .button-add-projetos:hover {
@@ -61,7 +68,7 @@ body {
 .list-projetos-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 100px
+    align-items: center;
 }
 
 .list-projetos {
@@ -69,35 +76,27 @@ body {
     list-style: none;
     width: 100%; /* Tornando a largura flexível */
     height: 100%;
-    overflow-y: auto; /* Adicionando rolagem vertical se necessário */
-    max-height: 800px; /* Definindo uma altura máxima para a rolagem */
 }
 
 .list-projetos li {
     word-wrap: break-word;
+    display: flex;
+    align-items: center;
     max-width: 100%;
     height: 100%;
-}
-
-
-.projetos {
-    display: flex;
-    flex-wrap: wrap; /* Permite que o conteúdo flua naturalmente para a próxima linha */
-    background-color: rgb(249, 249, 249);
-    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px; /* Adicionando padding para separação entre o texto e a borda */
-    border-radius: 5px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
     width: 100%; /* Tornando a largura flexível */
 }
 
-
-
-
+.projetos {
+    display: flex;
+    background-color: rgb(249, 249, 249);
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 10px 15px; /* Adicionando padding para separação entre o texto e a borda */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%; /* Tornando a largura flexível */
+}
 
 .projetos img {
     height: 25px;
