@@ -12,17 +12,18 @@ body {
 
 .container {
     background-color: rgb(8, 0, 73);
-    width: 1000px;
+    width: 1300px;
+    height: 1000px;
     border-radius: 10px;
     padding: 20px;
-    margin: 100px 60px 0;
+    margin: 100px auto 0; /* Alterado para centralizar na página */
 }
 
 .tarefas h3 {
     color: rgb(6, 113, 70);
     text-shadow: #003329;
     border-radius: 20px;
-    margin: 0 120px;
+    margin: 0 auto; /* Alterado para centralizar na página */
     text-align: center;
     font-size: 36px;
     background-color: rgb(3, 1, 56);
@@ -31,7 +32,7 @@ body {
 .input-projetos {
     border: none;
     border-radius: 5px;
-    width: 100%; /* Ocupa 100% da largura do contêiner */
+    width: 100%;
     height: 200px;
     padding-left: 10px;
 }
@@ -58,41 +59,47 @@ body {
 }
 
 .list-projetos-container {
-    display: flex; /* Adiciona flexibilidade à lista */
-    flex-wrap: wrap; /* Permite a quebra de linha dos itens da lista */
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px
 }
 
 .list-projetos {
     padding: 0;
     list-style: none;
-    width: 100%; /* Ocupa 100% da largura do contêiner */
+    width: 100%; /* Tornando a largura flexível */
+    height: 100%;
+    overflow-y: auto; /* Adicionando rolagem vertical se necessário */
+    max-height: 800px; /* Definindo uma altura máxima para a rolagem */
 }
 
 .list-projetos li {
     word-wrap: break-word;
-    max-width: 100%; /* Garante que cada item da lista não ultrapasse a largura máxima do contêiner principal */
-    word-break: break-word; /* Adiciona quebra de palavra para que o texto não ultrapasse a largura da li */
-    flex: 1; /* Permite que os itens se expandam proporcionalmente ao conteúdo */
-    min-height: 50px; /* Define uma altura mínima para cada item da lista */
+    max-width: 100%;
+    height: 100%;
 }
 
+
 .projetos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que o conteúdo flua naturalmente para a próxima linha */
     background-color: rgb(249, 249, 249);
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 10px 15px; /* Adicionando padding para separação entre o texto e a borda */
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
     color: rgb(0, 0, 0);
+    width: 100%; /* Tornando a largura flexível */
 }
 
-img {
+
+
+
+
+.projetos img {
     height: 25px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -127,7 +134,7 @@ img {
     color: black;
 }
 
-.topnav a.tarefas {
+.topnav a.active {
     background-color: #04AA6D;
     color: white;
 }

@@ -1,65 +1,75 @@
-const button = document.querySelector('.button-add-task')
-const input = document.querySelector('.input-task')
-const listaCompleta = document.querySelector('.list-tasks')
+const button = document.querySelector('.button-add-task');
+const input = document.querySelector('.input-task');
+const listaCompleta = document.querySelector('.list-tasks');
 
-let minhaListaDeItens = []
+let minhaListaDeItens = [];
 
 function adicionarNovaTarefa() {
-  minhaListaDeItens.push({
-    tarefa: input.value,
-    concluida: false,
-  })
+    minhaListaDeItens.push({
+        tarefa: input.value,
+        concluida: false,
+    });
 
-  input.value = ''
+    input.value = '';
 
-  mostrarTarefas()
+    mostrarTarefas();
 }
 
 function mostrarTarefas() {
-  let novaLi = ''
+    let novaLi = '';
 
-  // ['comprar café', 'estudar programação']
-
-  minhaListaDeItens.forEach((item, posicao) => {
-    novaLi =
-      novaLi +
-      `
-
+    minhaListaDeItens.forEach((item, posicao) => {
+        novaLi +=
+            `
         <li class="task ${item.concluida && 'done'}">
             <img src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
             <p>${item.tarefa}</p>
             <img src="./img/trash.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${posicao})">
         </li>
         
-        `
-  })
+        `;
+    });
 
-  listaCompleta.innerHTML = novaLi
+    listaCompleta.innerHTML = novaLi;
 
-  localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
+    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
 }
 
 function concluirTarefa(posicao) {
-  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
+    minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
 
-  mostrarTarefas()
+    mostrarTarefas();
 }
 
 function deletarItem(posicao) {
-  minhaListaDeItens.splice(posicao, 1)
+    minhaListaDeItens.splice(posicao, 1);
 
-  mostrarTarefas()
+    mostrarTarefas();
 }
 
 function recarregarTarefas() {
-  const tarefasDoLocalStorage = localStorage.getItem('lista')
+    const tarefasDoLocalStorage = localStorage.getItem('lista');
 
-  if (tarefasDoLocalStorage) {
-    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
-  }
+    if (tarefasDoLocalStorage) {
+        minhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
+    }
 
-  mostrarTarefas()
+    mostrarTarefas();
 }
 
-recarregarTarefas()
-button.addEventListener('click', adicionarNovaTarefa)
+recarregarTarefas();
+
+// Adiciona a classe 'active' ao link correspondente na barra de navegação
+const navLinks = document.querySelectorAll('.topnav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        navLinks.forEach(innerLink => innerLink.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Adiciona a classe 'active' ao link correspondente na barra de navegação
+const tarefasLink = document.querySelector('.tarefas');
+tarefasLink.classList.add('active');
+
+button.addEventListener('click', adicionarNovaTarefa);

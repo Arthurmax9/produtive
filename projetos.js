@@ -57,4 +57,9 @@ function recarregarTarefas() {
 }
 
 recarregarTarefas();
+
+// Adiciona a classe 'active' ao link correspondente na barra de navegação
+const projetosLink = document.getElementById('projetos-link');
+projetosLink.classList.add('active');
+
 button.addEventListener('click', adicionarNovoProjetos);

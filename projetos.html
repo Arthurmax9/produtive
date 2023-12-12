@@ -14,6 +14,13 @@
 </head>
 
 <body>
+    <div class="topnav">
+        <a class="tarefas" href="index.html">Tarefas</a>
+        <a id="projetos-link" href="projetos.html">Projetos</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+
     <div class="container">
         <div class="projetos">
             <h3>Projetos a longo prazo</h3>
@@ -22,9 +29,28 @@
         <button class="button-add-projetos">Adicionar</button>
 
         <div class="list-projetos-container">
-            <ul class="list-projetos"></ul>
+            <ul class="list-projetos">
+
+            </ul>
         </div>
     </div>
+
+    <script src="projetos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtém o caminho da URL atual
+            const path = window.location.pathname;
+
+            // Obtém o link da aba "Projetos"
+            const projetosLink = document.getElementById('projetos-link');
+
+            // Verifica se a URL atual corresponde à página de projetos
+            if (path.includes('projetos.html')) {
+                // Adiciona a classe 'active' para destacar o link
+                projetosLink.classList.add('active');
+            }
+        });
+    </script>
 </body>
-<script src="projetos.js"></script>
+
 </html>
