@@ -11,8 +11,9 @@ body {
 }
 
 .container {
-    background-color: rgba(67, 105, 4, 0.534);
-    width: 800px;
+    background-color: rgba(0, 128, 111, 0.534);
+    width: 100%;
+    max-width: 800px;
     border-radius: 10px;
     padding: 20px;
     margin: 100px auto 0;
@@ -22,13 +23,14 @@ body {
 }
 
 .tarefas h3 {
-    display: flex; 
+    display: flex;
     background-color: rgb(249, 249, 249);
-    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);    align-items: center;
-    padding: 10px 15px; /* Adicionando padding para separação entre o texto e a borda */
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 10px 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    width: 100%; /* Tornando a largura flexível */
+    width: 100%;
     font-size: 30px;
 }
 
@@ -67,15 +69,15 @@ body {
 .list-tasks {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    width: 100%; /* Tornando a largura flexível */
+    margin-top: 20px;
+    width: 100%;
 }
 
 .task {
     background-color: rgb(0, 0, 0);
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-wrap: wrap; /* Permitindo que o conteúdo flua naturalmente para a próxima linha */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
@@ -84,7 +86,7 @@ body {
     margin-bottom: 20px;
     cursor: pointer;
     color: white;
-    width: 100%; /* Tornando a largura flexível */
+    width: 100%;
 }
 
 .task img {
@@ -103,15 +105,23 @@ body {
 }
 
 .list-tasks li {
-    word-wrap: break-word;
     max-width: 100%;
-    height: 100%;
+    word-break: break-word; /* Change 'word-wrap' to 'word-break' */
+    height: auto; /* Remove the fixed height */
+}
+
+.list-tasks li p {
+    max-width: 80%;
 }
 
 .topnav {
-    background-color: #333;
+    margin-top: 40px;
+    background-color: #005f77;
     overflow: hidden;
     align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 
 .topnav a {
@@ -131,4 +141,24 @@ body {
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .tarefas h3 {
+        font-size: 24px;
+    }
+
+    .input-task,
+    .button-add-task {
+        width: 100%;
+    }
+
+    .list-tasks li p {
+        max-width: 100%;
+    }
 }

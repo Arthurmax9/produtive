@@ -12,29 +12,27 @@ body {
 
 .container {
     background-color: rgb(8, 0, 73);
-   
-   
+    width: 800px;
     border-radius: 10px;
     padding: 20px;
-    margin: 100px auto 0; /* Alterado para centralizar na página */
+    margin: 100px auto 0;
     display: flex;
-    flex-direction: column; /* Colocando os elementos em coluna */
+    flex-direction: column;
     align-items: center;
-    width: 90%; /* Tornando a largura flexível */
-    height: 100%;
 }
 
 .projetos h3 {
-    color: rgb(6, 113, 70);
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    margin: 20px 0; /* Adicionado espaço acima e abaixo do título */
+    margin: 20px 0;
     font-size: 36px;
-    text-align: center; /* Centralizar horizontalmente */
+    text-align: center;
     display: flex;
-    flex-grow: 1; /* Para centralizar verticalmente */
+    flex-grow: 1;
     align-items: center;
     justify-content: center;
 }
+
 .input-projetos {
     border: none;
     border-radius: 5px;
@@ -68,23 +66,28 @@ body {
 .list-projetos-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    margin-top: 50px;
+    width: 100%;
 }
 
 .list-projetos {
-    padding: 0;
-    list-style: none;
-    width: 100%; /* Tornando a largura flexível */
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .list-projetos li {
     word-wrap: break-word;
     display: flex;
     align-items: center;
-    max-width: 100%;
-    height: 100%;
-    width: 100%; /* Tornando a largura flexível */
+    max-width: 90%;
+    box-sizing: border-box;
+    padding: 5px;
+    flex-basis: 100%;
+}
+
+.list-projetos li:last-child {
+    margin-right: 0;
 }
 
 .projetos {
@@ -92,16 +95,25 @@ body {
     background-color: rgb(249, 249, 249);
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
     align-items: center;
-    padding: 10px 15px; /* Adicionando padding para separação entre o texto e a borda */
+    padding: 10px 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    width: 100%; /* Tornando a largura flexível */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .projetos img {
     height: 25px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+}
+
+.list-projetos img {
+    margin: 10px;
+}
+
+.list-projetos li p {
+    max-width: 80%;
 }
 
 .projetos:hover img {
@@ -114,8 +126,11 @@ body {
 }
 
 .topnav {
-    background-color: #333;
+    margin-top: 40px;
+    background-color: #005f77;
     overflow: hidden;
+    align-items: center;
+    display: flex;
     align-items: center;
 }
 
@@ -136,4 +151,25 @@ body {
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .projetos h3 {
+        font-size: 24px;
+    }
+
+    .input-projetos,
+    .button-add-projetos {
+        width: calc(100% - 20px);
+    }
+
+    .list-projetos li p {
+        max-width: calc(100% - 20px);
+    }
 }
