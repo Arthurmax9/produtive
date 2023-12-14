@@ -1,16 +1,16 @@
-const button = document.querySelector('.button-add-projetos');
-const input = document.querySelector('.input-projetos');
-const listaCompleta = document.querySelector('.list-projetos');
+const projectButton = document.querySelector('.button-add-projetos');
+const projectInput = document.querySelector('.input-projetos');
+const projectListaCompleta = document.querySelector('.list-projetos');
 
-let minhaListaDeItens = [];
+let projectMinhaListaDeItens = [];
 
-function adicionarNovoProjetos() {
-    minhaListaDeItens.push({
-        projeto: input.value,
+function adicionarNovoProjeto() {
+    projectMinhaListaDeItens.push({
+        projeto: projectInput.value,
         concluida: false,
     });
 
-    input.value = '';
+    projectInput.value = '';
 
     mostrarProjetos();
 }
@@ -18,48 +18,48 @@ function adicionarNovoProjetos() {
 function mostrarProjetos() {
     let novaLi = '';
 
-    minhaListaDeItens.forEach((item, posicao) => {
+    projectMinhaListaDeItens.forEach((item, posicao) => {
         novaLi +=
             `
         <li class="task ${item.concluida && 'done'}">
-            <img src="https://cdn-icons-png.flaticon.com/128/6459/6459980.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
+            <img src="https://cdn-icons-png.flaticon.com/128/6459/6459980.png" alt="check-na-tarefa" onclick="concluirProjeto(${posicao})">
             <p>${item.projeto}</p>
-            <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${posicao})">
+            <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarProjeto(${posicao})">
         </li>
-      `;
+        `;
     });
 
-    listaCompleta.innerHTML = novaLi;
+    projectListaCompleta.innerHTML = novaLi;
 
-    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
+    localStorage.setItem('projetoLista', JSON.stringify(projectMinhaListaDeItens));
 }
 
-function concluirTarefa(posicao) {
-    minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
+function concluirProjeto(posicao) {
+    projectMinhaListaDeItens[posicao].concluida = !projectMinhaListaDeItens[posicao].concluida;
 
     mostrarProjetos();
 }
 
-function deletarItem(posicao) {
-    minhaListaDeItens.splice(posicao, 1);
+function deletarProjeto(posicao) {
+    projectMinhaListaDeItens.splice(posicao, 1);
 
     mostrarProjetos();
 }
 
-function recarregarTarefas() {
-    const tarefasDoLocalStorage = localStorage.getItem('lista');
+function recarregarProjetos() {
+    const projetosDoLocalStorage = localStorage.getItem('projetoLista');
 
-    if (tarefasDoLocalStorage) {
-        minhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
+    if (projetosDoLocalStorage) {
+        projectMinhaListaDeItens = JSON.parse(projetosDoLocalStorage);
     }
 
     mostrarProjetos();
 }
 
-recarregarTarefas();
+recarregarProjetos();
 
 // Adiciona a classe 'active' ao link correspondente na barra de navegação
 const projetosLink = document.getElementById('projetos-link');
 projetosLink.classList.add('active');
 
-button.addEventListener('click', adicionarNovoProjetos);
+projectButton.addEventListener('click', adicionarNovoProjeto);

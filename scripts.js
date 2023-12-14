@@ -1,16 +1,16 @@
-const button = document.querySelector('.button-add-task');
-const input = document.querySelector('.input-task');
-const listaCompleta = document.querySelector('.list-tasks');
+const taskButton = document.querySelector('.button-add-task');
+const taskInput = document.querySelector('.input-task');
+const taskListaCompleta = document.querySelector('.list-tasks');
 
-let minhaListaDeItens = [];
+let taskMinhaListaDeItens = [];
 
 function adicionarNovaTarefa() {
-    minhaListaDeItens.push({
-        tarefa: input.value,
+    taskMinhaListaDeItens.push({
+        tarefa: taskInput.value,
         concluida: false,
     });
 
-    input.value = '';
+    taskInput.value = '';
 
     mostrarTarefas();
 }
@@ -18,40 +18,39 @@ function adicionarNovaTarefa() {
 function mostrarTarefas() {
     let novaLi = '';
 
-    minhaListaDeItens.forEach((item, posicao) => {
+    taskMinhaListaDeItens.forEach((item, posicao) => {
         novaLi +=
             `
         <li class="task ${item.concluida && 'done'}">
             <img src="https://cdn-icons-png.flaticon.com/128/6459/6459980.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
             <p>${item.tarefa}</p>
-            <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${posicao})">
+            <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarTarefa(${posicao})">
         </li>
-        
         `;
     });
 
-    listaCompleta.innerHTML = novaLi;
+    taskListaCompleta.innerHTML = novaLi;
 
-    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
+    localStorage.setItem('tarefaLista', JSON.stringify(taskMinhaListaDeItens));
 }
 
 function concluirTarefa(posicao) {
-    minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
+    taskMinhaListaDeItens[posicao].concluida = !taskMinhaListaDeItens[posicao].concluida;
 
     mostrarTarefas();
 }
 
-function deletarItem(posicao) {
-    minhaListaDeItens.splice(posicao, 1);
+function deletarTarefa(posicao) {
+    taskMinhaListaDeItens.splice(posicao, 1);
 
     mostrarTarefas();
 }
 
 function recarregarTarefas() {
-    const tarefasDoLocalStorage = localStorage.getItem('lista');
+    const tarefasDoLocalStorage = localStorage.getItem('tarefaLista');
 
     if (tarefasDoLocalStorage) {
-        minhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
+        taskMinhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
     }
 
     mostrarTarefas();
@@ -60,16 +59,7 @@ function recarregarTarefas() {
 recarregarTarefas();
 
 // Adiciona a classe 'active' ao link correspondente na barra de navegação
-const navLinks = document.querySelectorAll('.topnav a');
-navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-        navLinks.forEach(innerLink => innerLink.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
-// Adiciona a classe 'active' ao link correspondente na barra de navegação
 const tarefasLink = document.querySelector('.tarefas');
 tarefasLink.classList.add('active');
 
-button.addEventListener('click', adicionarNovaTarefa);
+taskButton.addEventListener('click', adicionarNovaTarefa);
