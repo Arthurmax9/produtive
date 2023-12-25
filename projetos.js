@@ -19,20 +19,21 @@ function mostrarProjetos() {
     let novaLi = '';
 
     projectMinhaListaDeItens.forEach((item, posicao) => {
-        novaLi +=
+        novaLi =
             `
         <li class="task ${item.concluida && 'done'}">
             <img src="https://cdn-icons-png.flaticon.com/128/6459/6459980.png" alt="check-na-tarefa" onclick="concluirProjeto(${posicao})">
             <p>${item.projeto}</p>
             <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarProjeto(${posicao})">
         </li>
-        `;
+        ` + novaLi;  // Adiciona o novo projeto no início da lista
     });
 
     projectListaCompleta.innerHTML = novaLi;
 
     localStorage.setItem('projetoLista', JSON.stringify(projectMinhaListaDeItens));
 }
+
 
 function concluirProjeto(posicao) {
     projectMinhaListaDeItens[posicao].concluida = !projectMinhaListaDeItens[posicao].concluida;

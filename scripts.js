@@ -19,20 +19,21 @@ function mostrarTarefas() {
     let novaLi = '';
 
     taskMinhaListaDeItens.forEach((item, posicao) => {
-        novaLi +=
+        novaLi =
             `
         <li class="task ${item.concluida && 'done'}">
             <img src="https://cdn-icons-png.flaticon.com/128/6459/6459980.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
             <p>${item.tarefa}</p>
             <img src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png" alt="tarefa-para-o-lixo" onclick="deletarTarefa(${posicao})">
         </li>
-        `;
+        ` + novaLi;  // Adiciona o novo item no início da lista
     });
 
     taskListaCompleta.innerHTML = novaLi;
 
     localStorage.setItem('tarefaLista', JSON.stringify(taskMinhaListaDeItens));
 }
+
 
 function concluirTarefa(posicao) {
     taskMinhaListaDeItens[posicao].concluida = !taskMinhaListaDeItens[posicao].concluida;

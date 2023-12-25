@@ -7,7 +7,11 @@
 }
 
 body {
-    background: url("https://images.unsplash.com/photo-1701220291849-735ab3532959?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat center center fixed;
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
+    
 }
 
 .container {
@@ -22,24 +26,36 @@ body {
     align-items: center;
 }
 
-.tarefas h3 {
+.tarefas{
     display: flex;
-    background-color: rgb(249, 249, 249);
+    background-color: rgba(0, 0, 0, 0.718);
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
     align-items: center;
     padding: 10px 15px;
     border-radius: 5px;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 30px;
+    width: auto;
+    color: white;
+}
+
+.tarefas h3 {
+    color: rgb(255, 255, 255);   
+    margin: 10px 0;
+    font-size: 36px;
+    text-align: center;
+    display: flex;
 }
 
 .input-task {
     border: none;
     border-radius: 5px;
-    width: 100%;
-    height: 100px;
+    width: 90%;
+    height: 200px;
     padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word; /* Permite que as palavras se quebrem */
 }
 
 .button-add-task {
@@ -105,6 +121,8 @@ body {
 }
 
 .list-tasks li {
+    align-items: center;
+    display: flex;
     max-width: 100%;
     word-break: break-word; /* Change 'word-wrap' to 'word-break' */
     height: auto; /* Remove the fixed height */
@@ -115,22 +133,31 @@ body {
 }
 
 .topnav {
-    margin-top: 40px;
-    background-color: #005f77;
+    width: 100%; /* Manter a largura total */
+    max-width: 800px; /* Definir a largura máxima para ser igual ao contêiner de tarefas */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    background-color: transparent;
+    background-color: #0000009d;
     overflow: hidden;
     align-items: center;
     display: flex;
-    align-items: center;
-    justify-content:center;
+    justify-content: center; /* Centralizar horizontalmente */
+    position: fixed; /* Tornar a barra de navegação fixa */
+    top: 0; /* Fixar no topo da tela */
+    left: 0;
+    right: 0;
+    border-radius: 20px;
 }
 
 .topnav a {
-    float: left;
+    float: none; /* Remova o float */
+    display: inline-block; /* Altere para display: inline-block; */
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 45px;
+    border-radius: 50px;
 }
 
 .topnav a:hover {

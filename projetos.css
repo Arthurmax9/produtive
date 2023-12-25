@@ -8,11 +8,14 @@
 }
 
 body {
-    background: url("https://images.unsplash.com/photo-1701220291849-735ab3532959?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-}
+    background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat center center fixed;
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
+    }
 
 .container {
-    background-color: rgb(8, 0, 73);
+    background-color: rgba(0, 128, 111, 0.534);
     width: 800px;
     border-radius: 10px;
     padding: 20px;
@@ -20,28 +23,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 150px;
 }
 
 .projetos h3 {
-    color: rgb(0, 0, 0);
-    border-radius: 20px;
-    margin: 20px 0;
+    color: rgb(255, 255, 255);   
+    margin: 10px 0;
     font-size: 36px;
     text-align: center;
     display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
+   
 }
 
 .input-projetos {
     border: none;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     height: 200px;
     padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word; /* Permite que as palavras se quebrem */
 }
 
+
+.input-projetos text{
+    display: flex;
+    word-wrap: break-word; /* Permite que as palavras se quebrem */
+
+
+}
 .button-add-projetos {
     border: none;
     border-radius: 5px;
@@ -53,7 +66,9 @@ body {
     float: right;
     cursor: pointer;
     font-weight: 700;
-    margin-top: 20px;
+    margin-top:30px;
+    display: flex;
+    align-items: center;
 }
 
 .button-add-projetos:hover {
@@ -69,12 +84,16 @@ body {
     flex-wrap: wrap;
     margin-top: 50px;
     width: 100%;
+    align-items: center;
+
 }
+
 
 .list-projetos {
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
 .list-projetos li {
@@ -93,14 +112,13 @@ body {
 
 .projetos {
     display: flex;
-    background-color: rgb(249, 249, 249);
+    background-color: rgba(0, 0, 0, 0.718);
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
     align-items: center;
     padding: 10px 15px;
     border-radius: 5px;
-    margin-bottom: 20px;
-    width: 100%;
-    box-sizing: border-box;
+    width: auto;
+    color: white;
 }
 
 .projetos img {
@@ -126,33 +144,8 @@ body {
     text-decoration: line-through;
 }
 
-.topnav {
-    margin-top: 40px;
-    background-color: #005f77;
-    overflow: hidden;
-    align-items: center;
-    display: flex;
-    align-items: center;
-}
 
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
 
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-}
 
 /* Responsive Styles */
 @media only screen and (max-width: 600px) {
